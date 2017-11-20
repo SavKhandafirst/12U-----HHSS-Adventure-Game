@@ -7,7 +7,7 @@
  *
  * @author khans4349
  */
-public class Assignment6 {
+public class MainClass {
 
     /**
      * @param args the command line arguments
