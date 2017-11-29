@@ -1,3 +1,9 @@
+
+import java.io.FileReader;
+import java.net.URL;
+import java.util.Scanner;
+import java.util.ArrayList;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -24,4 +30,24 @@ public class Location {
         this.image = image;
         this.frontIsClear = frontIsClear;
     }
+    
+    
+    public String getNameOfLocation(){
+        return nameofLocation;    
+    }
+    
+    public String getDirection(){
+        return direction;
+    }
+    
+    public String getImage(){
+        return image;
+    }
+    
+    public Boolean getFrontIsClear(){
+        return true;
+    }
+    
+    
+    
 }
