@@ -31,4 +31,8 @@ public class ImageJ extends JComponent {
         repaint();
     }
 
+    void loadImage(String imagesIMG_0083jpg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
