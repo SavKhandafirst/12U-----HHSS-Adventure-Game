@@ -33,6 +33,11 @@ public class InitialScene {
             currentLocation = input.next();
             //N
             currentDirection = input.nextLine();
+            
+            while (input.hasNext()) {
+                Location l = new Location(input);
+                locations.add(l);
+            }
 
         } catch (Exception e) {
             // handle any errors
@@ -41,10 +46,8 @@ public class InitialScene {
             System.exit(0);
         }
 
-
-
-
     }
+   
 
     public String getStartingLocation() {
         return currentLocation;
