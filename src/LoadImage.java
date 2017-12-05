@@ -34,12 +34,13 @@ public void paintComponent(Graphics g) {
         }
     }
 
-    public void loadImage(String name) {
+    public BufferedImage loadImage(String name) {
+        BufferedImage img = null;
         try {
             img = ImageIO.read(new File(name));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        repaint();
+        return img;
     }
 }

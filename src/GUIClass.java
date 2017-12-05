@@ -1,3 +1,9 @@
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,12 +16,30 @@
  */
 public class GUIClass extends javax.swing.JFrame {
 
+    private Controller controller;
+
     /**
      * Creates new form GUIClass
      */
     public GUIClass() {
         initComponents();
+        
+        
     }
+    
+    
+    public BufferedImage loadImage(String name) {
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File(name));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return img;
+    }
+    
+  
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,7 +53,6 @@ public class GUIClass extends javax.swing.JFrame {
         leftButton = new javax.swing.JButton();
         moveButton = new javax.swing.JButton();
         rightButton = new javax.swing.JButton();
-        image = new ImageJ();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,24 +82,18 @@ public class GUIClass extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(245, Short.MAX_VALUE)
                 .addComponent(leftButton)
                 .addGap(114, 114, 114)
                 .addComponent(moveButton)
                 .addGap(88, 88, 88)
                 .addComponent(rightButton)
                 .addGap(270, 270, 270))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(155, 155, 155)
-                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(image, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addContainerGap(408, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(leftButton)
                     .addComponent(moveButton)
@@ -88,15 +105,15 @@ public class GUIClass extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void moveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveButtonActionPerformed
-        image.loadImage("images\\IMG_0083.jpg");
+        controller.Move();
     }//GEN-LAST:event_moveButtonActionPerformed
 
     private void rightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightButtonActionPerformed
-        image.loadImage("images\\IMG_0084.jpg");
+        controller.turnRight();
     }//GEN-LAST:event_rightButtonActionPerformed
 
     private void leftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftButtonActionPerformed
-        image.loadImage("images\\IMG_0086.jpg");
+        controller.turnLeft();
     }//GEN-LAST:event_leftButtonActionPerformed
 
     /**
@@ -133,9 +150,7 @@ public class GUIClass extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ImageJ image;
     private javax.swing.JButton leftButton;
     private javax.swing.JButton moveButton;
     private javax.swing.JButton rightButton;

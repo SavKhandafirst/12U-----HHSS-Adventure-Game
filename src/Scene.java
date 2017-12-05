@@ -55,6 +55,7 @@ public class Scene {
 
     /**
      * Returns the direction of the Scene
+     *
      * @return the direction
      */
     public String getDirection() {
@@ -63,6 +64,7 @@ public class Scene {
 
     /**
      * Returns the image of the Scene
+     *
      * @return the image
      */
     public BufferedImage getImage() {
@@ -71,13 +73,16 @@ public class Scene {
 
     /**
      * Returns the upcoming direction
+     *
      * @return the nextDirection
      */
     public String getNextDirection() {
         return nextDirection;
     }
+
     /**
      * Returns the name of the upcoming place/location
+     *
      * @return next place
      */
     public String getNextPlace() {
@@ -86,11 +91,11 @@ public class Scene {
 
     /**
      * Returns if front is clear
+     *
      * @param direction is the direction the character is at
      * @return isFrontBlocked
      */
     public boolean isFrontBlocked(String direction) {
         return isFrontBlocked;
     }
-
 }
