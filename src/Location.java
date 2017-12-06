@@ -11,8 +11,8 @@ import java.util.Scanner;
  * @author khans4349
  */
 public class Location {
-
-    //Store the name of the location;
+  
+//Store the name of the location;
     private String locationName;
     // an Array to store all the directions
     private String[] Directions;
@@ -31,7 +31,7 @@ public class Location {
         Scenes = new ArrayList<>();
 
         //Make 4 scenes
-        for (int i = 0; i <= 4; i++) {
+        for (int i = 0; i < 4; i++) {
             Scene s = new Scene(in);
 
             Scenes.add(s);
@@ -43,7 +43,7 @@ public class Location {
      * @return the location name  
      */
     public String getLocationName() {
-        return locationName;
+        return this.locationName;
     }
 
     public Scene getScene(String direction) {

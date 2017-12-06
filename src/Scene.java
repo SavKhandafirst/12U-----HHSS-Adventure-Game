@@ -1,6 +1,8 @@
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.Scanner;
+import javax.imageio.ImageIO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +15,7 @@ import java.util.Scanner;
  */
 public class Scene {
 
-    //Stores Direction
+//Stores Direction
     private String direction;
     //Stores the name of the image 
     private String imageName;
@@ -51,6 +53,13 @@ public class Scene {
             isFrontBlocked = true;
             in.nextLine();
         }
+        try{
+            image = ImageIO.read(new File("images/" + imageName));
+        }catch(Exception e){
+            e.printStackTrace();
+            System.exit(0);
+        }
+        
     }
 
     /**
