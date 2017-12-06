@@ -33,7 +33,7 @@ public class InitialScene {
             currentLocation = input.next();
             //N
             currentDirection = input.nextLine();
-            
+
             while (input.hasNext()) {
                 Location l = new Location(input);
                 locations.add(l);
@@ -47,7 +47,19 @@ public class InitialScene {
         }
 
     }
-   
+
+    public Scene getLocation(String place, String direction) {
+        // comparing for loop
+        for (Location l : locations) {
+            //if the location equals the string "place" passed in
+            if (l.getLocationName().equals(place)) {
+                //return location and direction
+                return l.getScene(direction);
+            }
+        }
+        //else return null
+        return null;
+    }
 
     public String getStartingLocation() {
         return currentLocation;
