@@ -27,15 +27,15 @@ public class InitialScene {
 
         //try catch
         try {
-            Scanner input = new Scanner(new File(fileName));
+            Scanner in = new Scanner(new File(fileName));
             // Read initial location and Direction
             //Caf1
-            currentLocation = input.next();
+            currentLocation = in.next();
             //N
-            currentDirection = input.nextLine();
+            currentDirection = in.nextLine();
 
-            while (input.hasNext()) {
-                Location l = new Location(input);
+            while (in.hasNext()) {
+                Location l = new Location(in);
                 locations.add(l);
             }
 
