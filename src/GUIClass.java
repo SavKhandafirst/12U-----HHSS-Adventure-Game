@@ -22,20 +22,12 @@ public class GUIClass extends javax.swing.JFrame {
      * Creates new form GUIClass
      */
     public GUIClass() {
-        initComponents();
-        
-        
+        initComponents();        
     }
     
     
-    public BufferedImage loadImage(String name) {
-        BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File(name));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return img;
+    public void setImage(BufferedImage img) {
+        IMAGE.setImage(img);
     }
     
   
@@ -53,6 +45,7 @@ public class GUIClass extends javax.swing.JFrame {
         leftButton = new javax.swing.JButton();
         moveButton = new javax.swing.JButton();
         rightButton = new javax.swing.JButton();
+        IMAGE = new ImageJ();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,11 +82,17 @@ public class GUIClass extends javax.swing.JFrame {
                 .addGap(88, 88, 88)
                 .addComponent(rightButton)
                 .addGap(270, 270, 270))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(253, 253, 253)
+                .addComponent(IMAGE, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(408, Short.MAX_VALUE)
+                .addGap(68, 68, 68)
+                .addComponent(IMAGE, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(leftButton)
                     .addComponent(moveButton)
@@ -151,6 +150,7 @@ public class GUIClass extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private ImageJ IMAGE;
     private javax.swing.JButton leftButton;
     private javax.swing.JButton moveButton;
     private javax.swing.JButton rightButton;
