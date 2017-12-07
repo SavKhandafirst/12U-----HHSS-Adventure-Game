@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
  */
 public class Scene {
 
-    //Stores Direction
+//Stores Direction
     private String direction;
     //Stores the name of the image 
     private String imageName;

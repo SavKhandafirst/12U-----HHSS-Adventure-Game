@@ -11,8 +11,8 @@ import java.util.Scanner;
  * @author khans4349 & tewan2657 & bisho
  */
 public class Location {
-
-    //Store the name of the location;
+  
+//Store the name of the location;
     private String locationName;
     // an Array to store all the directions
     private String[] Directions;
