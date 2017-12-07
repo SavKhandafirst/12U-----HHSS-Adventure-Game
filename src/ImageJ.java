@@ -10,16 +10,23 @@ import javax.swing.JComponent;
  */
 /**
  *
- * @author bisho
+ * @author bisho & tewan2657 & Khans4347
  */
 public class ImageJ extends JComponent {
 
     private BufferedImage image;
 
-    public void PaintComponent(Graphics g) {
-        // there is an image to draw
+    public ImageJ() {
+        image = null;
+    }
+
+    /**
+     *
+     * @param g
+     */
+    @Override
+    public void paintComponent(Graphics g) {
         if (image != null) {
-            // draw the image
             g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), null);
         }
     }

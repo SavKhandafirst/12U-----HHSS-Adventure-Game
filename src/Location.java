@@ -1,53 +1,63 @@
 
-import java.io.FileReader;
-import java.net.URL;
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
- * @author khans4349
+ * @author khans4349 & tewan2657 & bisho
  */
 public class Location {
+  
+//Store the name of the location;
+    private String locationName;
+    // an Array to store all the directions
+    private String[] Directions;
+    //An arrayList to store the scene information 
+    private ArrayList<Scene> Scenes;
 
-    // private instance variables
-    private String nameofLocation;
-    private String direction;
-    private String image;
-    private boolean frontIsClear;
+    public Location(Scanner in) {
 
-    // CONSTRUCTOR:
+        //Intialize the directions array and store the directions in the array 
+        Directions = new String[]{"N", "E", "S", "W"};
 
-    // Location, direction, image, and checking to see if fronts clear
-    public Location(String nameofLocation, String direction, String image, boolean frontIsClear) {
-        this.nameofLocation = nameofLocation;
-        this.direction = direction;
-        this.image = image;
-        this.frontIsClear = frontIsClear;
+        //Store the locationName from the text File 
+        locationName = in.next();
+
+        //Initalize the arraylist
+        Scenes = new ArrayList<>();
+
+        //Make 4 scenes
+        for (int i = 0; i < 4; i++) {
+            Scene s = new Scene(in);
+
+            Scenes.add(s);
+        }
     }
-    
-    
-    public String getNameOfLocation(){
-        return nameofLocation;    
+
+    /**
+     * Returns the name of the location 
+     * @return the location name  
+     */
+    public String getLocationName() {
+        return this.locationName;
     }
-    
-    public String getDirection(){
-        return direction;
+
+    public Scene getScene(String direction) {
+        for (Scene s : Scenes) {
+            //Return the Scene
+            //depending on the direction you are currently facing 
+            if (s.getDirection().equals(direction)) {
+                return s;
+            }
+
+        }
+        //return nothing
+        return null;
+
     }
-    
-    public String getImage(){
-        return image;
-    }
-    
-    public Boolean getFrontIsClear(){
-        return true;
-    }
-    
-    
-    
+
 }
