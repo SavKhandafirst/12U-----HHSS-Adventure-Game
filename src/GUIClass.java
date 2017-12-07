@@ -1,18 +1,14 @@
 
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
- * @author bisho
+ * @author Adars
  */
 public class GUIClass extends javax.swing.JFrame {
 
@@ -23,23 +19,15 @@ public class GUIClass extends javax.swing.JFrame {
      */
     public GUIClass() {
         initComponents();
-        
-        
     }
-    
-    
-    public BufferedImage loadImage(String name) {
-        BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File(name));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return img;
+
+    public void setContro(Controller c) {
+        controller = c;
     }
-    
-  
-    
+
+    public void setImage(BufferedImage img) {
+        IMAGE.setImage(img);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,30 +38,31 @@ public class GUIClass extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        leftButton = new javax.swing.JButton();
-        moveButton = new javax.swing.JButton();
-        rightButton = new javax.swing.JButton();
+        MOVE = new javax.swing.JButton();
+        RIGHT = new javax.swing.JButton();
+        LEFT = new javax.swing.JButton();
+        IMAGE = new ImageJ();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        leftButton.setText("Left");
-        leftButton.addActionListener(new java.awt.event.ActionListener() {
+        MOVE.setText("MOVE");
+        MOVE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                leftButtonActionPerformed(evt);
+                MOVEActionPerformed(evt);
             }
         });
 
-        moveButton.setText("Move");
-        moveButton.addActionListener(new java.awt.event.ActionListener() {
+        RIGHT.setText("RIGHT");
+        RIGHT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moveButtonActionPerformed(evt);
+                RIGHTActionPerformed(evt);
             }
         });
 
-        rightButton.setText("Right");
-        rightButton.addActionListener(new java.awt.event.ActionListener() {
+        LEFT.setText("LEFT");
+        LEFT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rightButtonActionPerformed(evt);
+                LEFTActionPerformed(evt);
             }
         });
 
@@ -81,40 +70,48 @@ public class GUIClass extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(245, Short.MAX_VALUE)
-                .addComponent(leftButton)
-                .addGap(114, 114, 114)
-                .addComponent(moveButton)
-                .addGap(88, 88, 88)
-                .addComponent(rightButton)
-                .addGap(270, 270, 270))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(241, 241, 241)
+                        .addComponent(LEFT)
+                        .addGap(18, 18, 18)
+                        .addComponent(MOVE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(RIGHT))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(IMAGE, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(408, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
+                .addComponent(IMAGE, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(leftButton)
-                    .addComponent(moveButton)
-                    .addComponent(rightButton))
-                .addContainerGap())
+                    .addComponent(MOVE)
+                    .addComponent(RIGHT)
+                    .addComponent(LEFT))
+                .addGap(50, 50, 50))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void moveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveButtonActionPerformed
-        controller.Move();
-    }//GEN-LAST:event_moveButtonActionPerformed
-
-    private void rightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightButtonActionPerformed
-        controller.turnRight();
-    }//GEN-LAST:event_rightButtonActionPerformed
-
-    private void leftButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftButtonActionPerformed
+    private void LEFTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LEFTActionPerformed
         controller.turnLeft();
-    }//GEN-LAST:event_leftButtonActionPerformed
+        
+    }//GEN-LAST:event_LEFTActionPerformed
+
+    private void MOVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MOVEActionPerformed
+        controller.Move();
+    }//GEN-LAST:event_MOVEActionPerformed
+
+    private void RIGHTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RIGHTActionPerformed
+        controller.turnRight();
+    }//GEN-LAST:event_RIGHTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,9 +147,11 @@ public class GUIClass extends javax.swing.JFrame {
             }
         });
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton leftButton;
-    private javax.swing.JButton moveButton;
-    private javax.swing.JButton rightButton;
+    private ImageJ IMAGE;
+    private javax.swing.JButton LEFT;
+    private javax.swing.JButton MOVE;
+    private javax.swing.JButton RIGHT;
     // End of variables declaration//GEN-END:variables
 }

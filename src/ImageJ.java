@@ -4,35 +4,40 @@ import java.awt.image.BufferedImage;
 import javax.swing.JComponent;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 /**
  *
- * @author bisho
+ * @author hadik9595 & yuk4142
  */
 public class ImageJ extends JComponent {
 
+    //create private buffered image variable 
+
     private BufferedImage image;
 
-    public void PaintComponent(Graphics g) {
-        // there is an image to draw
+    public ImageJ() {
+        //initialize variable to store nothing at the current time
+        image = null;
+    }
+
+    @Override
+    //draw the image 
+    public void paintComponent(Graphics g) {
         if (image != null) {
-            // draw the image
             g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), null);
         }
     }
 
+    /**
+     * Sets the screen to a specific image
+     *
+     * @param img the image to set the screen as
+     */
     public void setImage(BufferedImage img) {
-        // store the image
-        this.image = img;
-        // repaint to draw
+        image = img;
+        //To see a change done to the component itself
         repaint();
     }
-
-    void loadImage(String imagesIMG_0083jpg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }

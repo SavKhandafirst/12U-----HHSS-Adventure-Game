@@ -17,7 +17,7 @@ public class MainClass {
 
         gui.setVisible(true);
 
-        InitialScene start = new InitialScene("images//pics.txt");
+        InitialScene start = new InitialScene("images/pics.txt");
 
         Controller c = new Controller(gui, start);
 

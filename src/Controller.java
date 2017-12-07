@@ -1,5 +1,6 @@
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /*
  * To change this template, choose Tools | Templates
@@ -10,80 +11,81 @@ import java.awt.image.BufferedImage;
  * @author tewan2657
  */
 public class Controller {
+
     // create the instance variables
     // initial scene
-
     private InitialScene iniScene;
     // Gui class
     private GUIClass gui;
-    // scene class
-    private Scene scene;
-    // location image
-    private BufferedImage image;
-    //Stores the name of the image (basically  location)
-    private String imageName;
     // direction
-    private String direction;
-    // if the front is clear
-    private boolean isFrontBlocked;
+    private String[] directions;
     // the initial location
     private String currentLocation;
     // the initial direction
     private String currentDirection;
 
-//	// location
-//	private String location;
+    private ArrayList<Location> locations = new ArrayList<>();
+
     public Controller(GUIClass gui, InitialScene iniScene) {
-
+        
         this.gui = gui;
-        this.scene = scene;
         this.iniScene = iniScene;
-        // need the starting direction
-        this.direction = scene.getDirection();
-
-        // picture
-        this.image = scene.getImage();
-
-        // name of the image
-        this.imageName = scene.getNextPlace();
-
-        isFrontBlocked = true;
-        // get the starting location
-        this.currentLocation = iniScene.getStartingLocation();
-        // get the starting direction
         this.currentDirection = iniScene.getStartingDirection();
+        this.currentLocation = iniScene.getStartingLocation();
 
+        directions = new String[]{"N", "E", "S", "W"};
+        gui.setContro(this);
+
+        Scene starting = iniScene.getLocation(this.currentLocation, this.currentDirection);
+        gui.setImage(starting.getImage());
     }
 
     public void Move() {
 
-        if (isFrontBlocked == false) {
-            direction = "N";
-            imageName = scene.getNextPlace();
-            image = scene.getImage();
-        } else {
-            System.out.println("Not Possible!!!");
+        Scene current = iniScene.getLocation(currentLocation, currentDirection);
+
+        if (!current.isFrontBlocked(currentDirection)) {
+            currentLocation = current.getNextPlace();
+
+            currentDirection = current.getNextDirection();
         }
+        Scene newS = iniScene.getLocation(currentLocation, currentDirection);
+        gui.setImage(newS.getImage());
     }
 
     public void turnLeft() {
-        if (isFrontBlocked == false) {
-            direction = "W";
-            imageName = scene.getNextPlace();
-            image = scene.getImage();
-        } else {
-            System.out.println("Not Possible!!!");
+
+        for (int i = 0; i < directions.length; i++) {
+            if (currentDirection.equals(directions[i])) {
+                if (currentDirection.equals("N")) {
+                    currentDirection = "W";
+                    break;
+                } else {
+                    currentDirection = directions[i - 1];
+                    break;
+                }
+            }
         }
+        Scene newS = iniScene.getLocation(currentLocation, currentDirection);
+        gui.setImage(newS.getImage());
+
     }
 
     public void turnRight() {
-        direction = "E";
-        if (isFrontBlocked == false) {
-            direction = "E";
-            imageName = scene.getNextPlace();
-            image = scene.getImage();
-        } else {
-            System.out.println("Not Possible!!!");
+        for (int i = 0; i < directions.length; i++) {
+            if (currentDirection.equals(directions[i])) {
+                if (currentDirection.equals("W")) {
+                    currentDirection = "N";
+                    break;
+
+                } else {
+                    currentDirection = directions[i + 1];
+                    break;
+                }
+
+            }
         }
+        Scene newS = iniScene.getLocation(currentLocation, currentDirection);
+        gui.setImage(newS.getImage());
     }
 }

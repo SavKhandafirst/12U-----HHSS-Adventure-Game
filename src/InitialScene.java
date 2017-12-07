@@ -1,5 +1,6 @@
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class InitialScene {
     private ArrayList<Location> locations;
     private String currentLocation;
     private String currentDirection;
-    FileReader file = null;
+    
 
     public InitialScene(String fileName) {
 
@@ -27,19 +28,19 @@ public class InitialScene {
 
         //try catch
         try {
-            Scanner input = new Scanner(new File(fileName));
+            Scanner in = new Scanner(new File(fileName));
             // Read initial location and Direction
             //Caf1
-            currentLocation = input.next();
+            currentLocation = in.next();
             //N
-            currentDirection = input.nextLine();
-            
-            while (input.hasNext()) {
-                Location l = new Location(input);
+            currentDirection = in.next();
+
+            while (in.hasNext()) {
+                Location l = new Location(in);
                 locations.add(l);
             }
 
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
             // handle any errors
             // print out the red errors
             e.printStackTrace();
@@ -47,7 +48,15 @@ public class InitialScene {
         }
 
     }
-   
+
+    public Scene getLocation(String place, String direciton) {
+        for (Location l : locations) {
+            if (l.getLocationName().equals(place)) {
+                return l.getScene(direciton);
+            }
+        }
+        return null;
+    }
 
     public String getStartingLocation() {
         return currentLocation;
