@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
  */
 /**
  *
- * @author Adars
+ * @author tewan2657 & Khans4349 & bisho
  */
 public class Scene {
 

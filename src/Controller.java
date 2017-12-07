@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 /**
  *
- * @author tewan2657
+ * @author tewan2657 & Khans4349 & bisho
  */
 public class Controller {
 
@@ -34,7 +34,7 @@ public class Controller {
         this.currentLocation = iniScene.getStartingLocation();
 
         directions = new String[]{"N", "E", "S", "W"};
-        gui.setContro(this);
+        gui.setController(this);
 
         Scene starting = iniScene.getLocation(this.currentLocation, this.currentDirection);
         gui.setImage(starting.getImage());

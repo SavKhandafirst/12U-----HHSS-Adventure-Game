@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
  */
 /**
  *
- * @author Adars
+ * @author tewan2657 & bisho & Khans4349
  */
 public class GUIClass extends javax.swing.JFrame {
 
@@ -21,7 +21,7 @@ public class GUIClass extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void setContro(Controller c) {
+    public void setController(Controller c) {
         controller = c;
     }
 
@@ -101,8 +101,9 @@ public class GUIClass extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LEFTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LEFTActionPerformed
+
         controller.turnLeft();
-        
+
     }//GEN-LAST:event_LEFTActionPerformed
 
     private void MOVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MOVEActionPerformed

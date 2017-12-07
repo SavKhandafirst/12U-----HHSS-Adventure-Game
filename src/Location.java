@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 /**
  *
- * @author khans4349
+ * @author khans4349 & tewan2657 & bisho
  */
 public class Location {
 
