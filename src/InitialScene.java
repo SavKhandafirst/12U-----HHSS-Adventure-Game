@@ -17,13 +17,17 @@ import java.util.Scanner;
  */
 public class InitialScene {
 
+    // instance variables
+    // array list
     private ArrayList<Location> locations;
+    // current location
     private String currentLocation;
+    // current direction
     private String currentDirection;
-    
 
     public InitialScene(String fileName) {
 
+        // set the array list
         locations = new ArrayList<>();
 
         //try catch
@@ -35,6 +39,7 @@ public class InitialScene {
             //N
             currentDirection = in.next();
 
+            // go to the end of the file
             while (in.hasNext()) {
                 Location l = new Location(in);
                 locations.add(l);
@@ -49,19 +54,33 @@ public class InitialScene {
 
     }
 
-    public Scene getLocation(String place, String direciton) {
+    /**
+     *
+     * @param place being passed through
+     * @param direciton being passed through
+     * @return the scene at a specific direction
+     */
+    public Scene getLocation(String place, String direction) {
         for (Location l : locations) {
             if (l.getLocationName().equals(place)) {
-                return l.getScene(direciton);
+                return l.getScene(direction);
             }
         }
         return null;
     }
 
+    /**
+     * @param get the starting location of the scene
+     * @return
+     */
     public String getStartingLocation() {
         return currentLocation;
     }
 
+    /**
+     * @param get the starting direction of the scene
+     * @return
+     */
     public String getStartingDirection() {
         return currentDirection;
     }

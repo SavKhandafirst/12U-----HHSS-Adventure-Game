@@ -8,10 +8,11 @@ import java.awt.image.BufferedImage;
  */
 /**
  *
- * @author tewan2657 & bisho & Khans4349
+ * @author tewan2657 & bisho & khans4349
  */
 public class GUIClass extends javax.swing.JFrame {
 
+    // instance variable
     private Controller controller;
 
     /**
@@ -21,10 +22,18 @@ public class GUIClass extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     *
+     * @param c set the controller
+     */
     public void setController(Controller c) {
         controller = c;
     }
 
+    /**
+     *
+     * @param img set the image received
+     */
     public void setImage(BufferedImage img) {
         IMAGE.setImage(img);
     }
@@ -101,16 +110,18 @@ public class GUIClass extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LEFTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LEFTActionPerformed
-
+        // turn the user left     
         controller.turnLeft();
 
     }//GEN-LAST:event_LEFTActionPerformed
 
     private void MOVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MOVEActionPerformed
+        // move the user forward
         controller.Move();
     }//GEN-LAST:event_MOVEActionPerformed
 
     private void RIGHTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RIGHTActionPerformed
+        // turn the user right
         controller.turnRight();
     }//GEN-LAST:event_RIGHTActionPerformed
 
@@ -148,7 +159,6 @@ public class GUIClass extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ImageJ IMAGE;
     private javax.swing.JButton LEFT;

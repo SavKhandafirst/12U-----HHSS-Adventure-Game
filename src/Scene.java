@@ -11,11 +11,12 @@ import javax.imageio.ImageIO;
  */
 /**
  *
- * @author tewan2657 & Khans4349 & bisho
+ * @author tewan2657 & khans4349 & bisho
  */
 public class Scene {
 
-//Stores Direction
+    // instance variables
+    //Stores Direction
     private String direction;
     //Stores the name of the image 
     private String imageName;
@@ -37,6 +38,7 @@ public class Scene {
         //Check if there is more info 
         String ifMore = in.next();
 
+        // if more is equal to false
         if (ifMore.equals("false")) {
             // the front is not blocked
             isFrontBlocked = false;
@@ -53,13 +55,13 @@ public class Scene {
             isFrontBlocked = true;
             in.nextLine();
         }
-        try{
+        try {
             image = ImageIO.read(new File("images/" + imageName));
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
         }
-        
+
     }
 
     /**

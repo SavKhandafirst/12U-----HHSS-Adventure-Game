@@ -14,15 +14,18 @@ import javax.swing.JComponent;
  */
 public class ImageJ extends JComponent {
 
+    // instance variable
     private BufferedImage image;
 
+    // constructor
     public ImageJ() {
         image = null;
     }
 
     /**
      *
-     * @param g
+     * @param g paint component to set the width and height of the image to the
+     * screen layout
      */
     @Override
     public void paintComponent(Graphics g) {
@@ -31,11 +34,14 @@ public class ImageJ extends JComponent {
         }
     }
 
+    /**
+     *
+     * @param img set the image that is received
+     */
     public void setImage(BufferedImage img) {
         // store the image
         this.image = img;
         // repaint to draw
         repaint();
     }
-
 }
