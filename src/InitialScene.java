@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 /**
  *
- * @author bisho & tewan2657 & Khans4349
+ * @author bisho & tewan2657 & khans4349
  */
 public class InitialScene {
 

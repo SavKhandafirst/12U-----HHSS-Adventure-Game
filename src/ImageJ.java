@@ -10,7 +10,7 @@ import javax.swing.JComponent;
  */
 /**
  *
- * @author bisho & tewan2657 & Khans4347
+ * @author bisho & tewan2657 & khans4347
  */
 public class ImageJ extends JComponent {
 
